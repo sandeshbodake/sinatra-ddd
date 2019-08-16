@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'server/config/puma.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'config/db/schema.rb'
+    - 'database.rake'
+
+# Offenses count: 1. YAML.safe_load won't work with files using aliases
+Security/YAMLLoad:
+  Exclude:
+    - 'server/infrastructure/database/model/entity.rb'
+
+Metrics/LineLength:
+  Max: 120
