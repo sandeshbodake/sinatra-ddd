@@ -19,7 +19,7 @@ gem 'sinatra-contrib'
 # random number generation
 gem 'sysrandom'
 # sqlite database support
-gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3'
 # orm
 gem 'activerecord'
 # database migrations
