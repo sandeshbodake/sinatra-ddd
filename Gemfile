@@ -40,6 +40,7 @@ end
 group :development do
   # debugging
   gem 'pry'
+  gem 'foreman'
 end
 
 group :development, :test do

@@ -29,6 +29,15 @@ or
 rake run_dev
 ```
 (supposed to reload services when code changes)
+
+Internally it will run the server as a rack application:
+```
+rackup
+```
+and the frontend code will be processed with (in server/presentation/view/ folder):
+```
+webpack --watch --config webpack.config.js --mode development
+```
 ### Run tests
 #### Run all tests
 ```

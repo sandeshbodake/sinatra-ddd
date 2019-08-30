@@ -7,6 +7,8 @@ require 'sinatra'
 require 'faker'
 require 'factory_bot'
 require 'rake'
+require_relative '../config/environment.rb'
+
 load 'database.rake' # Check this
 
 # Prevent database truncation if the environment is production

@@ -2,14 +2,14 @@
 
 load 'database.rake'
 
-task default: %w[run]
+task default: %w[rundev]
 
 task :run do
   rackup
 end
 
-task :run_dev do
-  bundle exec 'rerun --no-notify --pattern=\"**/*.{rb}\" bundle exec rackup '
+task :rundev do
+  bundle exec 'foreman start'
 end
 
 task :routes do

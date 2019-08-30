@@ -16,7 +16,7 @@ RSpec.describe Presentation::Controller::ApplicationController do
         get '/'
 
         expect(last_response).to be_ok
-        expect(last_response.body).to eq('{"control":":)"}')
+        expect(last_response.body).to eq('<html><head></head><body>:)</body></html>')
       end
     end
   end

@@ -8,7 +8,7 @@ module Presentation
     # Base controller, handles the default route
     class ApplicationController < Sinatra::Application
       get '/' do
-        json(control: ':)')
+        erb :index
       end
     end
   end

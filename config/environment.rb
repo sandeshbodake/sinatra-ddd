@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+configure :development, :production do
+  set :public_folder, settings.root + '/server/presentation/view/build'
+  set :views, settings.root + '/server/presentation/view'
+end
+
 configure :development do
   enable :logging
   enable :show_exceptions
@@ -18,5 +23,5 @@ configure :test do
   enable :logging
   enable :show_exceptions
   enable :raise_errors
-  disable :run
+  set :views, settings.root + '/int/view'
 end
