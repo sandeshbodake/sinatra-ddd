@@ -42,8 +42,8 @@ end
 
 group :development do
   # debugging
-  gem 'pry'
   gem 'foreman'
+  gem 'pry'
 end
 
 group :development, :test do

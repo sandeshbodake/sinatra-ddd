@@ -10,7 +10,7 @@ module Infrastructure
     # Could exist one config file for each database
     CONFIG_1 = YAML.load(File.open('config/db/config.yml'))[ENV['SYS_ENV']]
                    .merge('schema_search_path' => 'public')
-    
+
     ActiveRecord::Base.logger = logger
 
     # Module containing data structures as classes

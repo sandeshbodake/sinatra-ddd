@@ -19,7 +19,9 @@ task :run do
 end
 
 task :runsys do
-  sh "cd ./server/presentation/view && ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['SYS_ENV']} && cd -"
+  sh "cd ./server/presentation/view && \
+      ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['SYS_ENV']} && \
+      cd -"
   bundle exec 'puma'
 end
 

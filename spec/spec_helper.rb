@@ -120,7 +120,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     FactoryBot.find_definitions
     # Check this
-    if (ARGV.any? { |e| e[/int/] } || ARGV.empty?)
+    if ARGV.any? { |e| e[/int/] } || ARGV.empty?
       puts 'Reseting test database'
       Rake::Task['db:reset'].invoke
     end

@@ -5,7 +5,9 @@ AllCops:
     - 'vendor/**/*'
     - '.git/**/*'
     - 'config/db/schema.rb'
+    - 'spec/int/db/schema.rb'
     - 'config/db/database.rake'
+    - 'server/presentation/view/node_modules/**/*'
 
 # Offenses count: 1. YAML.safe_load won't work with files using aliases
 Security/YAMLLoad:
