@@ -53,3 +53,7 @@ build-iPhoneSimulator/
 
 # Databases
 *.sqlite3
+
+# SSL
+key.pem
+cert.pem
