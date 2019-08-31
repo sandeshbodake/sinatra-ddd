@@ -35,6 +35,9 @@ group :test do
   gem 'rack-test'
   # test framework
   gem 'rspec'
+  # e2e tests
+  gem 'selenium-cucumber'
+  gem 'selenium-webdriver'
 end
 
 group :development do
