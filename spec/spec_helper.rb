@@ -9,7 +9,7 @@ require 'factory_bot'
 require 'rake'
 require_relative '../config/environment.rb'
 
-load 'database.rake' # Check this
+load 'config/db/database.rake' # Check this
 
 # Prevent database truncation if the environment is production
 abort('The environment is running in production mode!') if settings.production?

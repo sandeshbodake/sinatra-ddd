@@ -71,7 +71,7 @@ The file `config/routes.rb` describes a Proc object that makes possible the rout
 ```
 
 ### Database tasks
-These tasks are defined in the `database.rake` file. ActiveRecord has been used to perform the operations. 
+These tasks are defined in the `config/db/database.rake` file. ActiveRecord has been used to perform the operations. 
 
 It is recommended to use a gem (on top of ActiveRecord) that provides these database functions.
 A good example could be `otr-activerecord` or `standalone_migrations`

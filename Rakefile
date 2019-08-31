@@ -1,15 +1,36 @@
 # frozen_string_literal: true
 
-load 'database.rake'
+require 'dotenv/load'
+load 'config/db/database.rake'
 
-task default: %w[rundev]
+ENV['RACK_ENV'] = ENV['APP_ENV'] = ENV['SYS_ENV']
+
+task default: %w[run]
 
 task :run do
-  rackup
+  case ENV['SYS_ENV']
+  when 'development'
+    Rake::Task['rundev'].invoke
+  when 'test'
+    Rake::Task['test'].invoke
+  when 'production'
+    Rake::Task['runsys'].invoke
+  end
+end
+
+task :runsys do
+  sh "cd ./server/presentation/view && ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['SYS_ENV']} && cd -"
+  bundle exec 'puma'
 end
 
 task :rundev do
   bundle exec 'foreman start'
+end
+
+task :test do
+  ENV['RACK_ENV'] = ENV['APP_ENV'] = ENV['SYS_ENV'] = 'test'
+  sh 'bundle exec rspec'
+  bundle exec 'cucumber'
 end
 
 task :routes do

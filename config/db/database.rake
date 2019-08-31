@@ -36,7 +36,7 @@ namespace :db do
   task :schema do
     ActiveRecord::Base.establish_connection(db_config)
     require 'active_record/schema_dumper'
-    filename = 'config/db/schema.rb'
+    filename = 'test'.eql?(ENV["SYS_ENV"])? 'spec/int/db/schema.rb' : 'config/db/schema.rb'
     File.open(filename, 'w:utf-8') do |file|
       ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
     end

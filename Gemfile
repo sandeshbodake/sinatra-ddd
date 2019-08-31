@@ -24,7 +24,7 @@ gem 'sqlite3'
 gem 'activerecord'
 # database migrations
 # gem 'otr-activerecord' # or
-# gem 'standalone_migrations' # or tune up your own active-record-based manager (database.rake)
+# gem 'standalone_migrations' # or tune up your own active-record-based manager (config/db/database.rake)
 
 group :test do
   # object generation
