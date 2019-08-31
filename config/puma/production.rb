@@ -28,7 +28,7 @@
 #
 # The default is "development".
 #
-# environment 'production'
+environment 'production'
 
 # Daemonize the server into the background. Highly suggest that
 # this be combined with "pidfile" and "stdout_redirect".
@@ -65,7 +65,7 @@
 #
 # The default is "0, 16".
 #
-# threads 0, 32
+threads 0, 32
 
 # Bind the server to "url". "tcp://", "unix://" and "ssl://" are the only
 # accepted protocols.
@@ -80,12 +80,11 @@
 # Instead of "bind 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'" you
 # can also use the "ssl_bind" option.
 #
-ssl_bind '127.0.0.1', '9292', {
-  cert: 'cert.pem',
-  key: 'key.pem',
-  verify_mode: 'none',         # default 'none'
-}
-  # ssl_cipher_filter: cipher_filter, # optional inside ssl_bind !
+ssl_bind '127.0.0.1', '9292',
+         cert: 'cert.pem',
+         key: 'key.pem',
+         verify_mode: 'none' # default 'none'
+# ssl_cipher_filter: cipher_filter, # optional inside ssl_bind !
 
 # for JRuby additional keys are required:
 # keystore: path_to_keystore,
@@ -104,7 +103,7 @@ ssl_bind '127.0.0.1', '9292', {
 # load puma itself (ie. 'ruby -Ilib bin/puma'), not the arguments
 # to puma, as those are the same as the original process.
 #
-# restart_command '/u/app/lolcat/bin/restart_puma'
+restart_command 'bundle exec puma'
 
 # === Cluster mode ===
 
@@ -113,7 +112,7 @@ ssl_bind '127.0.0.1', '9292', {
 #
 # The default is "0".
 #
-# workers 2
+workers 2
 
 # Code to run immediately before the master starts workers.
 #
