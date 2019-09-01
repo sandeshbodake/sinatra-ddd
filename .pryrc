@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
-require_relative 'server.rb'
+require 'sinatra'
+require_relative 'config/environment'

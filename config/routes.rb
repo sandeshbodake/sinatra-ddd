@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'sinatra'
 require 'presentation/controller/person_controller'
 require 'presentation/controller/application_controller'
 

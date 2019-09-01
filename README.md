@@ -1,12 +1,12 @@
-# Ruby web API
+# Ruby web API + Simple ReactJS front end.
 
 Rack application that uses Sinatra as the web framework. It has a basic Domain Driven Design approach. 
 It does not use anything of Ruby on Rails.
 
 The server consists of three layers Presentation (`server/presentation`), Domain (`server/domain`) and Infrastructure (`server/infrastructure`).
 
-* Presentation.  Over this layer resides the web API endpoints, in charge of handling the client request and choosing (not to do) the right action to take.
-It is also in charge of response serialization and request validation.
+* Presentation.  Over this layer resides the web GUI (based on ReactJS, under `presentation/view`) and the web API endpoints, in charge of handling the client request and choosing (not to do) the right action to take. 
+It is also in charge of response serialization and request validation for the web API.
 
 * Domain. Every logic concerning (abstracting) real-world operations should be condensed here.
 
@@ -16,6 +16,8 @@ Aside from these layers, there are two important packages: `config`, and `server
 
 * the config package contains configurations about external services and this server itself.
 * the util package contains artifacts that can be used all across the server.
+
+**Note:** The variables described in .env must be loaded before performing any operation. Only rake tasks load those variables automatically (`require 'dotfile/load'`).
 
 ## Rake tasks
 
