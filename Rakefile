@@ -3,12 +3,12 @@
 require 'dotenv/load'
 load 'config/db/database.rake'
 
-ENV['RACK_ENV'] = ENV['APP_ENV'] = ENV['SYS_ENV']
+ENV['APP_ENV'] = ENV['RACK_ENV']
 
 task default: %w[run]
 
 task :run do
-  case ENV['SYS_ENV']
+  case ENV['RACK_ENV']
   when 'development'
     Rake::Task['rundev'].invoke
   when 'test'
@@ -20,7 +20,7 @@ end
 
 task :runsys do
   sh "cd ./server/presentation/view && \
-      ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['SYS_ENV']} && \
+      ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['APP_ENV']} && \
       cd -"
   bundle exec 'puma'
 end
@@ -30,7 +30,7 @@ task :rundev do
 end
 
 task :test do
-  ENV['RACK_ENV'] = ENV['APP_ENV'] = ENV['SYS_ENV'] = 'test'
+  ENV['RACK_ENV'] = ENV['APP_ENV'] = 'test'
   sh 'bundle exec rspec'
   bundle exec 'cucumber'
 end

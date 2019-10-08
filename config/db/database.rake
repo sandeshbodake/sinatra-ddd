@@ -5,7 +5,7 @@ require 'yaml'
 require 'dotenv/load'
 
 namespace :db do
-  db_config = YAML.load(File.open('config/db/config.yml'))[ENV['SYS_ENV']]
+  db_config = YAML.load(File.open('config/db/config.yml'))[ENV['RACK_ENV']]
                   .merge('schema_search_path' => 'public')
 
   desc 'Create the database'
@@ -36,7 +36,7 @@ namespace :db do
   task :schema do
     ActiveRecord::Base.establish_connection(db_config)
     require 'active_record/schema_dumper'
-    filename = 'test'.eql?(ENV["SYS_ENV"])? 'spec/int/db/schema.rb' : 'config/db/schema.rb'
+    filename = 'test'.eql?(ENV["RACK_ENV"])? 'spec/int/db/schema.rb' : 'config/db/schema.rb'
     File.open(filename, 'w:utf-8') do |file|
       ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
     end

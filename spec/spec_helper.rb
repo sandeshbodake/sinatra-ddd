@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-ENV['RACK_ENV'] ||= 'test'
-ENV['APP_ENV'] = ENV['SYS_ENV'] = ENV['RACK_ENV']
+ENV['APP_ENV'] = ENV['RACK_ENV'] ||= 'test'
 
 require 'sinatra'
 require 'faker'
