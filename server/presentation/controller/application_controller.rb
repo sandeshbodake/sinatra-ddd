@@ -8,10 +8,6 @@ module Presentation
     # Base controller, handles the default route
     class ApplicationController < Sinatra::Application
       set :ssl, -> { !development? }
-
-      get '/' do
-        erb :index
-      end
     end
   end
 end

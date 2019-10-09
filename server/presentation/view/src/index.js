@@ -14,4 +14,4 @@ serviceWorker.unregister();
 
 require(path.resolve(__dirname, '/') + 'favicon.ico');
 require(path.resolve(__dirname, '/') + 'logo192.png');
-require(path.resolve(__dirname, '/') + 'manifest.json');
+require(path.resolve(__dirname, '/') + 'logo512.png');

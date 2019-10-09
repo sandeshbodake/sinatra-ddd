@@ -7,12 +7,12 @@ module Presentation
   module Controller
     # Controller that handles requests about Person-related actions
     class PersonController < ApplicationController
-      def initialize(people = Domain::People.new)
-        super
+      def initialize(app, people = Domain::People.new)
+        super app
         @people = people
       end
 
-      get '/' do
+      get '/persons' do
         json @people.all.map(&:to_hash)
       end
     end

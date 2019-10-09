@@ -3,9 +3,8 @@
 require 'sinatra'
 require_relative 'config/environment.rb'
 
-# get main routes defined in config/routes.rb
-require_relative 'config/routes'
+require 'presentation/controller/master_site_controller'
 
 use Rack::Reloader unless settings.production?
 
-instance_eval(&MAIN_ROUTES)
+map('/') { run Presentation::Controller::MasterSiteController }

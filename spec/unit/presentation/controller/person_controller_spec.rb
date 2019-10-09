@@ -7,7 +7,7 @@ RSpec.describe Presentation::Controller::PersonController do
   include Rack::Test::Methods
 
   def app
-    Presentation::Controller::PersonController
+    Presentation::Controller::PersonController.new nil
   end
 
   context 'GET persons' do
@@ -18,7 +18,7 @@ RSpec.describe Presentation::Controller::PersonController do
       it 'returns json array of persons' do
         allow_any_instance_of(Domain::People).to receive(:all).and_return([person1, person2])
 
-        get '/'
+        get '/persons'
 
         expect(last_response).to be_ok
         expect(last_response.body).to eq("[{\"name\":\"#{person1.name}\"},{\"name\":\"#{person2.name}\"}]")

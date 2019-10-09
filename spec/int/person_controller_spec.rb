@@ -7,7 +7,7 @@ RSpec.describe Presentation::Controller::PersonController do
   include Rack::Test::Methods
 
   def app
-    Presentation::Controller::PersonController
+    Presentation::Controller::PersonController.new nil
   end
 
   let!(:person1) { create(:person_db) }
@@ -16,7 +16,7 @@ RSpec.describe Presentation::Controller::PersonController do
   context 'GET persons' do
     context 'valid request' do
       it 'returns a json array of persons' do
-        get '/'
+        get '/persons'
 
         expect(last_response).to be_ok
         expect(last_response.body).to eq("[{\"name\":\"#{person1.name}\"},{\"name\":\"#{person2.name}\"}]")
