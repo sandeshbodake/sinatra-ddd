@@ -8,6 +8,7 @@ module Presentation
     # Controller that handles requests about Person-related actions
     class MasterSiteController < ApplicationController
       use PersonController
+
       def initialize(people = Domain::People.new)
         super
         @people = people
