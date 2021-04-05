@@ -21,6 +21,8 @@ Aside from these layers, there are two important packages: `config`, and `server
 
 ## Rake tasks
 
+Before running, ensure a .env file is present (See ```.env.example``` for details). Also, do not forget to run ```npm install``` in the front-end folder.
+
 ### Run the project
 
 ```
@@ -101,7 +103,7 @@ rake db:seed
 #### Generate schema file
 ```
 rake db:schema
-````
+```
 #### Reset the database
 ```
 rake db:reset
