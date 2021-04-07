@@ -19,9 +19,9 @@ configure :development, :production do
       expire_after: 31_557_600, # 1 year
       secret: ENV['SESSION_SECRET']
   set :session_store, Rack::Session::Pool
-  set :views, settings.root + '/server/presentation/view'
+  set :views, "#{settings.root}/server/presentation/view"
   set :ssl, production?
-  set :public_folder, settings.root + '/server/presentation/view/build'
+  set :public_folder, "#{settings.root}/server/presentation/view/build"
 end
 
 configure :development do
@@ -39,5 +39,5 @@ configure :test do
   enable :show_exceptions
   enable :raise_errors
   enable :sessions
-  set :views, settings.root + '/int/view'
+  set :views, "#{settings.root}/int/view"
 end

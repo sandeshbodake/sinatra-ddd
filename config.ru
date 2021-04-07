@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra'
-require_relative 'config/environment.rb'
+require_relative 'config/environment'
 
 require 'presentation/controller/master_site_controller'
 

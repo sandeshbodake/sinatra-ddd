@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'infrastructure/database/model/person.rb'
-require 'domain/model/person.rb'
+require 'infrastructure/database/model/person'
+require 'domain/model/person'
 
 module Infrastructure
   module Database

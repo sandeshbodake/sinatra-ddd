@@ -26,7 +26,7 @@ namespace :db do
   desc 'Seed database'
   task :seed do
     ActiveRecord::Base.establish_connection(db_config)
-    require_relative 'config/db/seeds.rb'
+    require_relative 'seeds.rb'
   end
 
   desc 'Reset database'
@@ -56,7 +56,7 @@ namespace :db do
   desc 'Roolback migration'
   task :rollback do
     ActiveRecord::Base.establish_connection(db_config)
-    ActiveRecord::MigrationContext.new('config/db/migrate/').rollback
+    ActiveRecord::MigrationContext.new('config/db/migrate/', ActiveRecord::SchemaMigration).rollback
     Rake::Task['db:schema'].invoke
     puts 'Last migration has been reverted.'
   end
@@ -73,7 +73,7 @@ namespace :db do
         # frozen_string_literal: true
         
         # Migration for #{name}
-        class #{migration_class} < ActiveRecord::Migration[5.2]
+        class #{migration_class} < ActiveRecord::Migration[6.1]
           def change
 
           end

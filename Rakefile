@@ -71,12 +71,12 @@ end
 
 def print_pretty(routes_hash)
   routes_hash.each do |main, sub|
-    print main + '  =>'
+    print "#{main}  =>"
     sub.each do |controller, methods|
-      puts '   ' + controller
+      puts "   #{controller}"
       methods.each do |method, occurences|
-        puts "\t\t" + method
-        occurences.each { |route| puts "\t\t\t\t" + route }
+        puts "\t\t#{method}"
+        occurences.each { |route| puts "\t\t\t\t#{route}" }
       end
     end
   end
