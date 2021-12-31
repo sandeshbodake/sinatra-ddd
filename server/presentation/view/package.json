@@ -38,7 +38,6 @@
   "devDependencies": {
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
-    "font-loader": "^0.1.2",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
